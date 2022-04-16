@@ -2,6 +2,14 @@
 
 `composer require api`
 
+## Serialization
+
+object -> array -> format (json/xml/...) - serialization
+
+format -> array -> object (json/xml/...) - deserialization
+
+
+
 
 ## Useful commands
 ### Doctrine
