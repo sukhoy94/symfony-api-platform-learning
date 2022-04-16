@@ -6,7 +6,7 @@
 
 object -> array -> format (json/xml/...) - serialization
 
-format -> array -> object (json/xml/...) - deserialization
+format(json/xml/...) -> array -> object - deserialization
 
 
 
