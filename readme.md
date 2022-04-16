@@ -4,12 +4,25 @@
 
 ## Serialization
 
+- https://api-platform.com/docs/core/serialization/
+
+- https://symfonycasts.com/screencast/api-platform/serialization-groups
+
 object -> array -> format (json/xml/...) - serialization
 
 format(json/xml/...) -> array -> object - deserialization
 
+### Serialization groups
 
-
+```
+/**
+ * #[ApiResource(
+ *   normalizationContext: ['groups' => ['read']],
+ *   denormalizationContext: ['groups' => ['write']],
+ *   )]
+ */
+class CheeseListing
+```
 
 ## Useful commands
 ### Doctrine

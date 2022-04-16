@@ -6,9 +6,13 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\CheeseListingRepository;
 use Carbon\Carbon;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: CheeseListingRepository::class)]
-#[ApiResource]
+#[ApiResource(
+    normalizationContext: ['groups' => ['read']],
+    denormalizationContext: ['groups' => ['write']],
+)]
 class CheeseListing
 {
     #[ORM\Id]
@@ -17,18 +21,23 @@ class CheeseListing
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Groups(["read", "write"])]
     private $title;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Groups(["read", "write"])]
     private $description;
 
     #[ORM\Column(type: 'text')]
+    #[Groups(["read", "write"])]
     private $text;
 
     #[ORM\Column(type: 'integer')]
+    #[Groups(["read", "write"])]
     private $price;
 
     #[ORM\Column(type: 'datetime_immutable')]
+    #[Groups(["read", "write"])]
     private $createdAt;
 
     #[ORM\Column(type: 'boolean')]
