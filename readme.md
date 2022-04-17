@@ -28,6 +28,16 @@ The solution for this - and the way that I recommend doing things in all cases -
 class CheeseListing
 ```
 
+## Filters and Searching
+```
+#[ApiFilter(BooleanFilter::class, properties: ["isPublished"])]
+#[ApiFilter(BooleanFilter::class, properties: ["isPublished"])]
+#[ApiFilter(SearchFilter::class, properties: ["title" => "partial"])]
+```
+
+
+https://api-platform.com/docs/core/filters/
+
 ## Useful commands
 ### Doctrine
 

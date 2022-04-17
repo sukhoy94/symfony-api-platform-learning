@@ -2,7 +2,10 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\BooleanFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use App\Repository\CheeseListingRepository;
 use Carbon\Carbon;
 use Doctrine\ORM\Mapping as ORM;
@@ -13,6 +16,8 @@ use Symfony\Component\Serializer\Annotation\Groups;
     normalizationContext: ['groups' => ['read']],
     denormalizationContext: ['groups' => ['write']],
 )]
+#[ApiFilter(BooleanFilter::class, properties: ["isPublished"])]
+#[ApiFilter(SearchFilter::class, properties: ["title" => "partial"])]
 class CheeseListing
 {
     #[ORM\Id]
@@ -39,7 +44,8 @@ class CheeseListing
     #[ORM\Column(type: 'datetime_immutable')]
     #[Groups(["read", "write"])]
     private $createdAt;
-
+    
+    #[Groups(["read", "write"])]
     #[ORM\Column(type: 'boolean')]
     private $isPublished;
 
