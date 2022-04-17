@@ -38,6 +38,14 @@ class CheeseListing
 
 https://api-platform.com/docs/core/filters/
 
+## Sparse fieldset
+
+We can list fields we want to get with API via PropertyFilter
+
+https://api-platform.com/docs/core/filters/
+
+
+
 ## Useful commands
 ### Doctrine
 
