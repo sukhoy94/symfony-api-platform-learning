@@ -16,6 +16,9 @@ use Symfony\Component\Serializer\Annotation\Groups;
 #[ApiResource(
     normalizationContext: ['groups' => ['read']],
     denormalizationContext: ['groups' => ['write']],
+    attributes: [
+        'pagination_items_per_page' => 1,
+    ]
 )]
 #[ApiFilter(BooleanFilter::class, properties: ["isPublished"])]
 #[ApiFilter(SearchFilter::class, properties: ["title" => "partial"])]

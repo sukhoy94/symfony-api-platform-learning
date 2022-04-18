@@ -45,6 +45,21 @@ We can list fields we want to get with API via PropertyFilter
 https://api-platform.com/docs/core/filters/
 
 
+## Pagination
+
+- page parameter for GET request
+
+- in annotation we can control number of items to return per page (pagination_items_per_page)
+
+```
+#[ApiResource(
+    normalizationContext: ['groups' => ['read']],
+    denormalizationContext: ['groups' => ['write']],
+    attributes: [
+        'pagination_items_per_page' => 10,
+    ]
+)]
+```
 
 ## Useful commands
 ### Doctrine
