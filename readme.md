@@ -1,6 +1,14 @@
 # Installation
 
-`composer require api`
+`composer install`
+
+## Entities
+
+- User
+- CheeseListing
+
+Relation: ManyToOne
+
 
 ## Serialization
 
@@ -114,6 +122,11 @@ private $title;
 
 
 ## Useful commands
+
+init
+
+`composer require api`
+
 ### Doctrine
 
 `php bin/console doctrine:database:create`
