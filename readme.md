@@ -96,6 +96,22 @@ use Symfony\Component\Validator\Constraints as Assert;
 private $title;
 ```
 
+## IRI
+
+"owner": "/api/users/1" -- @id from json-ld
+
+```
+{
+  "title": "awesome cheese",
+  "description": "awesome cheese description",
+  "text": "awesome cheese text",
+  "price": 400,
+  "createdAt": "2022-04-18T16:44:24.358Z",
+  "isPublished": true,
+  "owner": "/api/users/1"
+}
+```
+
 
 ## Useful commands
 ### Doctrine

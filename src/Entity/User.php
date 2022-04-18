@@ -43,6 +43,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $username;
 
     #[ORM\OneToMany(mappedBy: 'owner', targetEntity: CheeseListing::class)]
+    #[Groups(["user:read"])]
     private $cheeseListings;
 
     public function __construct()
