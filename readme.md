@@ -61,6 +61,26 @@ https://api-platform.com/docs/core/filters/
 )]
 ```
 
+## More Formats: HAL & CSV
+
+json, hal json, xml, yaml, csv
+
+`php bin/console debug:config api_platform`
+
+formats annotation in @apiResource
+
+```
+#[ApiResource(
+    normalizationContext: ['groups' => ['read']],
+    denormalizationContext: ['groups' => ['write']],
+    attributes: [
+        'pagination_items_per_page' => 5,
+        'formats' => ['csv' => 'text/csv']
+    ]
+)]
+```
+
+
 ## Useful commands
 ### Doctrine
 
