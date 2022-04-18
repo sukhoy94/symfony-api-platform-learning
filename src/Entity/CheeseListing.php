@@ -11,6 +11,7 @@ use App\Repository\CheeseListingRepository;
 use Carbon\Carbon;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CheeseListingRepository::class)]
 #[ApiResource(
@@ -33,6 +34,11 @@ class CheeseListing
 
     #[ORM\Column(type: 'string', length: 255)]
     #[Groups(["read", "write"])]
+    #[Assert\NotBlank]
+    #[Assert\Length([
+        'min' => 1,
+        'max' => 50
+    ])]
     private $title;
 
     #[ORM\Column(type: 'string', length: 255)]

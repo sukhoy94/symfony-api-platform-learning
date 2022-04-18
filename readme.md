@@ -80,6 +80,22 @@ formats annotation in @apiResource
 )]
 ```
 
+## Validation
+
+```
+use Symfony\Component\Validator\Constraints as Assert;
+
+
+#[ORM\Column(type: 'string', length: 255)]
+#[Groups(["read", "write"])]
+#[Assert\NotBlank]
+#[Assert\Length([
+    'min' => 1,
+    'max' => 50
+])]
+private $title;
+```
+
 
 ## Useful commands
 ### Doctrine
