@@ -105,3 +105,7 @@ private $title;
 `php bin/console doctrine:migrations:migrate`
 
 `php bin/console make:migration`
+
+`./bin/console doctrine:schema:drop --full-database`
+
+`./bin/console doctrine:schema:drop --force`
