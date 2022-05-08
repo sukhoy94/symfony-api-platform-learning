@@ -39,7 +39,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $password;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Groups(["user:read", "user:write"])]
+    #[Groups(["user:read", "user:write", 'cheeselisting:read'])]
     private $username;
 
     #[ORM\OneToMany(mappedBy: 'owner', targetEntity: CheeseListing::class)]

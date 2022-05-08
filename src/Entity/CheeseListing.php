@@ -15,8 +15,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CheeseListingRepository::class)]
 #[ApiResource(
-    normalizationContext: ['groups' => ['read']],
-    denormalizationContext: ['groups' => ['write']],
+    normalizationContext: ['groups' => ['cheeselisting:read']],
+    denormalizationContext: ['groups' => ['cheeselisting:write']],
     attributes: [
         'pagination_items_per_page' => 5,
         'formats' => ['json', 'jsonld', 'html', 'csv' => 'text/csv']
@@ -33,7 +33,7 @@ class CheeseListing
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Groups(["read", "write"])]
+    #[Groups(["cheeselisting:read", "cheeselisting:write", 'user:read'])]
     #[Assert\NotBlank]
     #[Assert\Length([
         'min' => 1,
@@ -42,27 +42,27 @@ class CheeseListing
     private $title;
 
     #[ORM\Column(type: 'string', length: 255)]
-    #[Groups(["read", "write"])]
+    #[Groups(["cheeselisting:read", "cheeselisting:write"])]
     private $description;
 
     #[ORM\Column(type: 'text')]
-    #[Groups(["read", "write"])]
+    #[Groups(["cheeselisting:read", "cheeselisting:write"])]
     private $text;
 
     #[ORM\Column(type: 'integer')]
-    #[Groups(["read", "write"])]
+    #[Groups(["cheeselisting:read", "cheeselisting:write"])]
     private $price;
 
     #[ORM\Column(type: 'datetime_immutable')]
-    #[Groups(["read", "write"])]
+    #[Groups(["cheeselisting:read", "cheeselisting:write"])]
     private $createdAt;
     
-    #[Groups(["read", "write"])]
+    #[Groups(["cheeselisting:read", "cheeselisting:write"])]
     #[ORM\Column(type: 'boolean')]
     private $isPublished;
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'cheeseListings')]
-    #[Groups(["read", "write"])]
+    #[Groups(["cheeselisting:read", "cheeselisting:write",])]
     private $owner;
 
     public function getId(): ?int
