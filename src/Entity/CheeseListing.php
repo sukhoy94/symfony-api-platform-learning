@@ -15,6 +15,16 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CheeseListingRepository::class)]
 #[ApiResource(
+    collectionOperations: ['get', 'post'],
+    itemOperations:[
+        'get'=>[
+            'normalization_context' => [
+                'groups' => [
+                    'cheeselisting:read', 'cheeslisting:item:get'
+                ]
+            ]
+        ]
+    ],
     normalizationContext: ['groups' => ['cheeselisting:read']],
     denormalizationContext: ['groups' => ['cheeselisting:write']],
     attributes: [
